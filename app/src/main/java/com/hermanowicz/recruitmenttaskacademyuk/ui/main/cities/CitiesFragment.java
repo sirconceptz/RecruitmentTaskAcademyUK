@@ -7,10 +7,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.ActionOnlyNavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +18,14 @@ import android.view.ViewGroup;
 
 import com.hermanowicz.recruitmenttaskacademyuk.R;
 import com.hermanowicz.recruitmenttaskacademyuk.databinding.FragmentCitiesBinding;
-import com.hermanowicz.recruitmenttaskacademyuk.ui.main.adapter.CitiesAdapter;
+import com.hermanowicz.recruitmenttaskacademyuk.ui.main.adapter.CitiesFullDetailsAdapter;
+import com.hermanowicz.recruitmenttaskacademyuk.ui.main.adapter.CitiesWithMaxTempAdapter;
+import com.hermanowicz.recruitmenttaskacademyuk.ui.main.interfaces.OnItemClickListener;
 import com.hermanowicz.recruitmenttaskacademyuk.ui.main.model.City;
-import com.hermanowicz.recruitmenttaskacademyuk.ui.main.weather_details.WeatherDetailsFragment;
 
 import java.util.List;
 
-public class CitiesFragment extends Fragment implements CitiesAdapter.OnItemClickListener {
+public class CitiesFragment extends Fragment implements OnItemClickListener {
 
     private CitiesViewModel viewModel;
     private FragmentCitiesBinding binding;
@@ -35,7 +36,7 @@ public class CitiesFragment extends Fragment implements CitiesAdapter.OnItemClic
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         initView();
-        setupRecyclerView();
+        setupCitiesRecyclerView();
 
         return view;
     }
@@ -50,21 +51,34 @@ public class CitiesFragment extends Fragment implements CitiesAdapter.OnItemClic
         viewModel = new ViewModelProvider(this).get(CitiesViewModel.class);
         view = binding.getRoot();
 
-        showSmallestTemp();
+        showSmallestTemps();
     }
 
-    private void showSmallestTemp() {
-        String smallestTemp = getString(R.string.smallest_temp) + ": " + viewModel.getSmallestTemp();
-        binding.smallestTemp.setText(smallestTemp);
+    private void showSmallestTemps() {
+        String smallestTempAllCities = getString(R.string.smallest_temp_all_cities) + " = " + viewModel.getSmallestTempAllCities();
+        binding.smallestTempAllCities.setText(smallestTempAllCities);
+
+        String smallestTempDaily = getString(R.string.smallest_temp_daily) + " ≈ " + viewModel.getSmallestDailyTemp();
+        binding.smallestTempDaily.setText(smallestTempDaily);
     }
 
-    private void setupRecyclerView() {
+    private void setupCitiesRecyclerView() {
+        RecyclerView citiesTaskTwo = binding.citiesTaskTwo;
         List<City> cityList = viewModel.getConvertedCityList();
-        CitiesAdapter citiesAdapter = new CitiesAdapter(cityList, this);
-        binding.cities.setAdapter(citiesAdapter);
-        binding.cities.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.cities.setHasFixedSize(true);
-        binding.cities.setItemAnimator(new DefaultItemAnimator());
+        CitiesWithMaxTempAdapter citiesWithMaxTempAdapter = new CitiesWithMaxTempAdapter(cityList, this);
+
+        citiesTaskTwo.setAdapter(citiesWithMaxTempAdapter);
+        citiesTaskTwo.setLayoutManager(new LinearLayoutManager(getContext()));
+        citiesTaskTwo.setHasFixedSize(true);
+        citiesTaskTwo.setItemAnimator(new DefaultItemAnimator());
+
+        RecyclerView citiesTaskThree = binding.citiesTaskFour;
+        CitiesFullDetailsAdapter citiesFullDetailsAdapter = new CitiesFullDetailsAdapter(cityList, this);
+
+        citiesTaskThree.setAdapter(citiesFullDetailsAdapter);
+        citiesTaskThree.setLayoutManager(new LinearLayoutManager(getContext()));
+        citiesTaskThree.setHasFixedSize(true);
+        citiesTaskThree.setItemAnimator(new DefaultItemAnimator());
     }
 
     @Override

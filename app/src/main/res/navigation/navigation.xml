@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_cities"
         android:name="com.hermanowicz.recruitmenttaskacademyuk.ui.main.cities.CitiesFragment"
-        android:label="@string/title_cities"
+        android:label="@string/cities_max_hourly_temp"
         tools:layout="@layout/fragment_cities">
         <action
             android:id="@+id/actionWeatherDetails"
@@ -25,7 +25,7 @@
     <fragment
         android:id="@+id/nav_weather_details"
         android:name="com.hermanowicz.recruitmenttaskacademyuk.ui.main.weather_details.WeatherDetailsFragment"
-        android:label="@string/title_cities"
+        android:label="@string/cities_max_hourly_temp"
         tools:layout="@layout/fragment_cities">
 
         <argument

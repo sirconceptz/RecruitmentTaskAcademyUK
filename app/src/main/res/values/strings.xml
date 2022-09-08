@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Recruitment Task Academy UK</string>
-    <string name="title_cities">Cities</string>
-    <string name="title_weather_details">Weather details</string>
-    <string name="smallest_temp">Smallest temperature</string>
+    <string name="smallest_temp_all_cities">Task 1 - Smallest temperature from all cities</string>
+    <string name="cities_max_hourly_temp">Task 2 - Cities with maximum daily temperature</string>
+    <string name="smallest_temp_daily">Task 3 - Smallest daily temperature</string>
+    <string name="cities_full_details">Task 4 - Show JSON data as a list</string>
+    <string name="forecast">Forecast</string>
+    <string name="hourly_temp">Hourly temperature: </string>
 </resources>

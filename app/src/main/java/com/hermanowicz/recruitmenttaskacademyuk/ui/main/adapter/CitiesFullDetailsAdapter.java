@@ -29,20 +29,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hermanowicz.recruitmenttaskacademyuk.R;
-import com.hermanowicz.recruitmenttaskacademyuk.databinding.RvSingleCityBinding;
+import com.hermanowicz.recruitmenttaskacademyuk.databinding.RvSingleCityFullDetailsBinding;
+import com.hermanowicz.recruitmenttaskacademyuk.databinding.RvSingleCityWithTempBinding;
+import com.hermanowicz.recruitmenttaskacademyuk.ui.main.interfaces.OnItemClickListener;
 import com.hermanowicz.recruitmenttaskacademyuk.ui.main.model.City;
+import com.hermanowicz.recruitmenttaskacademyuk.ui.main.model.HourlyTemp;
 
 import java.util.List;
 
-public class CitiesAdapter extends
-        RecyclerView.Adapter<CitiesAdapter.ViewHolder> {
+public class CitiesFullDetailsAdapter extends
+        RecyclerView.Adapter<CitiesFullDetailsAdapter.ViewHolder> {
 
-    private RvSingleCityBinding binding;
-    private OnItemClickListener clickListener;
+    private RvSingleCityFullDetailsBinding binding;
+    private final OnItemClickListener clickListener;
     private final List<City> cityList;
     int itemAnimPosition = -1;
 
-    public CitiesAdapter (List<City> cityList, OnItemClickListener clickListener) {
+    public CitiesFullDetailsAdapter(List<City> cityList, OnItemClickListener clickListener) {
         this.cityList = cityList;
         this.clickListener = clickListener;
     }
@@ -58,12 +61,21 @@ public class CitiesAdapter extends
 
     private void showCity(City city) {
         TextView name = binding.textCityName;
-        TextView maxTemp = binding.textCityMaxTemperature;
-
-        String maxTemperature = city.getMaxTemperature() + "°C";
+        TextView weather = binding.textCityWeather;
+        TextView hourlyTemp = binding.textHourlyTemp;
+        String hourlyTempListInString = getHourlyTempListInString(city.getHourlyTemp());
 
         name.setText(city.getCity());
-        maxTemp.setText(maxTemperature);
+        weather.setText(city.getWeather());
+        hourlyTemp.setText(hourlyTempListInString);
+    }
+
+    private String getHourlyTempListInString(List<HourlyTemp> hourlyTempList) {
+        StringBuilder hourlyTempListInString = new StringBuilder();
+        for(HourlyTemp hourlyTemp : hourlyTempList) {
+            hourlyTempListInString.append(hourlyTemp.getHour()).append(":00 - (").append(hourlyTemp.getTemp()).append("°C) \n");
+        }
+        return hourlyTempListInString.toString();
     }
 
     private void setListener(City city) {
@@ -96,7 +108,7 @@ public class CitiesAdapter extends
         Context context = parent.getContext();
 
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        binding = RvSingleCityBinding.inflate(layoutInflater, parent, false);
+        binding = RvSingleCityFullDetailsBinding.inflate(layoutInflater, parent, false);
 
         return new ViewHolder(binding.getRoot());
     }
@@ -110,9 +122,5 @@ public class CitiesAdapter extends
     @Override
     public int getItemCount() {
         return cityList.size();
-    }
-
-    public interface OnItemClickListener {
-        void onItemClick(City city);
     }
 }

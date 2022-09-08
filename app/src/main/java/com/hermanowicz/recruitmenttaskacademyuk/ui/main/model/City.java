@@ -8,7 +8,7 @@ import java.util.List;
 public class City implements Parcelable {
     private String city;
     private String weather;
-    private List<HourlyTemp> hourly_temp;
+    private List<HourlyTemp> hourlyTemp;
     private double maxTemperature;
 
     protected City(Parcel in) {
@@ -49,12 +49,12 @@ public class City implements Parcelable {
         this.weather = weather;
     }
 
-    public List<HourlyTemp> getHourly_temp() {
-        return hourly_temp;
+    public List<HourlyTemp> getHourlyTemp() {
+        return hourlyTemp;
     }
 
-    public void setHourly_temp(List<HourlyTemp> hourly_temp) {
-        this.hourly_temp = hourly_temp;
+    public void setHourly_temp(List<HourlyTemp> hourlyTemp) {
+        this.hourlyTemp = hourlyTemp;
     }
 
     public double getMaxTemperature() {

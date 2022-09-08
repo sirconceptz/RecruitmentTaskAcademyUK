@@ -16,33 +16,85 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/label"
+                android:id="@+id/smallestTempAllCities"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/title_cities"
                 android:layout_margin="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:gravity="center"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <View
+                android:id="@+id/dividerAfterTaskOne"
+                style="@style/Divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/smallestTempAllCities" />
+
+            <TextView
+                android:id="@+id/task_two_label"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cities_max_hourly_temp"
+                android:layout_margin="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerAfterTaskOne"/>
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cities"
+                android:id="@+id/cities_task_two"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/label"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/task_two_label"/>
+
+            <View
+                android:id="@+id/dividerAfterTaskTwo"
+                style="@style/Divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cities_task_two" />
 
             <TextView
-                android:id="@+id/smallestTemp"
+                android:id="@+id/smallestTempDaily"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:gravity="center"
-                app:layout_constraintTop_toBottomOf="@id/cities" />
+                app:layout_constraintTop_toBottomOf="@id/dividerAfterTaskTwo" />
+
+            <View
+                android:id="@+id/dividerAfterTaskThree"
+                style="@style/Divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/smallestTempDaily" />
+
+            <TextView
+                android:id="@+id/task_four_label"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cities_full_details"
+                android:layout_margin="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dividerAfterTaskThree"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cities_task_four"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task_four_label"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

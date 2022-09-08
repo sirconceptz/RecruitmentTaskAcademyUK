@@ -2,6 +2,7 @@ package com.hermanowicz.recruitmenttaskacademyuk.ui.main.cities;
 
 import com.hermanowicz.recruitmenttaskacademyuk.ui.main.model.City;
 import com.hermanowicz.recruitmenttaskacademyuk.ui.main.model.CityJson;
+import com.hermanowicz.recruitmenttaskacademyuk.ui.main.model.SmallestTempCity;
 
 import java.util.List;
 
@@ -10,5 +11,7 @@ public interface CitiesUseCase {
 
     List<City> getConvertedCityList();
 
-    String getSmallestTemperature();
+    SmallestTempCity getSmallestDailyTemperature();
+
+    SmallestTempCity getSmallestTempAllCities();
 }
