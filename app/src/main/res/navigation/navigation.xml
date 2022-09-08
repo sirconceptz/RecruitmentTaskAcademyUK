@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@+id/nav_cities">
+
+    <fragment
+        android:id="@+id/nav_cities"
+        android:name="com.hermanowicz.recruitmenttaskacademyuk.ui.main.cities.CitiesFragment"
+        android:label="@string/title_cities"
+        tools:layout="@layout/fragment_cities">
+        <action
+            android:id="@+id/actionWeatherDetails"
+            app:destination="@id/nav_weather_details"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right">
+            <argument
+                android:name="city"
+                app:argType="com.hermanowicz.recruitmenttaskacademyuk.ui.main.model.City"
+                app:nullable="true"
+                android:defaultValue="@null" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_weather_details"
+        android:name="com.hermanowicz.recruitmenttaskacademyuk.ui.main.weather_details.WeatherDetailsFragment"
+        android:label="@string/title_cities"
+        tools:layout="@layout/fragment_cities">
+
+        <argument
+            android:name="city"
+            app:argType="com.hermanowicz.recruitmenttaskacademyuk.ui.main.model.City"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+</navigation>
