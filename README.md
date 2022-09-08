@@ -20,4 +20,4 @@ Java, Fragments, Navigation, Multilanguage, MVVM, UseCases
 
 ## Author
 
-* **Mateusz Hermanowicz** - [LinkedIn](https://www.linkedin.com/in/mateusz-hermanowicz-57906
+* **Mateusz Hermanowicz** - [LinkedIn](https://www.linkedin.com/in/mateusz-hermanowicz-57906)
