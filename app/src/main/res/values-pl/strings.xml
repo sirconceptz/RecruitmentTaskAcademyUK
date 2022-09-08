@@ -3,8 +3,8 @@
     <string name="app_name">Zadanie rekrutacyjne Academy UK</string>
     <string name="smallest_temp_all_cities">Zad. 1 - Najmniejsza temperatura z wszystkich miast</string>
     <string name="cities_max_hourly_temp">Zad. 2 - Miasta z maksymalną dzienną temperaturą</string>
-    <string name="smallest_temp_daily">Task 3 - Najmniejsza dzienna temperatura</string>
-    <string name="cities_full_details">Task 4 - Wyświetl dane JSON jako listę</string>
+    <string name="smallest_temp_daily">Zad. 3 - Najmniejsza dzienna temperatura</string>
+    <string name="cities_full_details">Zad. 4 - Wyświetl dane JSON jako listę</string>
     <string name="forecast">Prognoza pogody</string>
     <string name="hourly_temp">Temperatura godzinowa: </string>
 </resources>

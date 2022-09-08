@@ -26,14 +26,13 @@
         android:id="@+id/city_cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="8dp"
         android:clickable="true"
         android:focusable="true"
-        style="@style/Theme.RecruitmentTaskAcademyUK"
-        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/green_50"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,6 +46,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,10 +74,10 @@
                 android:id="@+id/text_hourlyTemp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
                 android:layout_marginTop="4dp"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@id/text_hourlyTempLabel"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_hourlyTempLabel" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
