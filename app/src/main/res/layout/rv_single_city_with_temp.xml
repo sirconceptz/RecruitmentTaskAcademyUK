@@ -32,7 +32,6 @@
         android:layout_marginBottom="8dp"
         android:clickable="true"
         android:focusable="true"
-        app:cardBackgroundColor="@color/green_50"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout

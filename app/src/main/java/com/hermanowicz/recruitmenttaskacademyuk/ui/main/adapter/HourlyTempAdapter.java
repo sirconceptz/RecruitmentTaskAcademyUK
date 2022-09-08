@@ -36,7 +36,6 @@ public class HourlyTempAdapter extends
 
     private RvSingleHourlyTempBinding binding;
     private final List<HourlyTemp> hourlyTempList;
-    int itemAnimPosition = -1;
 
     public HourlyTempAdapter(List<HourlyTemp> hourlyTempList) {
         this.hourlyTempList = hourlyTempList;

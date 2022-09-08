@@ -11,7 +11,7 @@ import java.util.List;
 
 public class WeatherDetailsViewModel extends ViewModel {
 
-    private WeatherDetailsUseCase useCase = new WeatherDetailsUseCaseImpl();
+    private final WeatherDetailsUseCase useCase = new WeatherDetailsUseCaseImpl();
 
     public City getCityAndShowData(@NonNull WeatherDetailsFragmentArgs args) {
         useCase.setCityFromArguments(args.getCity());
